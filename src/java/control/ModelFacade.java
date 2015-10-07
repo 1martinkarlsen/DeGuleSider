@@ -17,33 +17,9 @@ public class ModelFacade {
     Person person;
 
     List<Person> personList = new ArrayList();
-
+    
     public static void main(String[] args) {
         ModelFacade facade = new ModelFacade();
-
-        facade.testRun();
-
-        facade.getPersons();
-    }
-
-    public void testRun() {
-        Person p1 = new Person();
-        Person p2 = new Person();
-        Person p3 = new Person();
-
-        p1.setFirstName("Kasper");
-        p1.setLastName("Worm");
-
-        p2.setFirstName("Rasmus");
-        p2.setLastName("hansen");
-
-        p3.setFirstName("Martin");
-        p3.setLastName("Karlsen");
-
-        personList.add(p1);
-        personList.add(p2);
-        personList.add(p3);
-
     }
 
     public ModelFacade() {
@@ -58,8 +34,9 @@ public class ModelFacade {
         }
     }
 
-    public List<Person> getPersons() {
-        query = em.createNamedQuery("Person.findAll");
+    public List<Person> getPersonsFromZip(long zip) {
+        query.setParameter("zip", zip);
+        query = em.createNamedQuery("Person.findByZip");
 
         return personList = query.getResultList();
     }
