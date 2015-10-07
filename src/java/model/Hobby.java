@@ -22,6 +22,9 @@ public class Hobby implements Serializable {
     @ManyToMany(mappedBy="hobbyList")
     List<Person> personList = new ArrayList();
 
+    public Hobby() {
+    }
+    
     public String getName() {
         return name;
     }

@@ -24,6 +24,9 @@ public class Address implements Serializable {
     List<Info> infoList = new ArrayList();
     @ManyToOne
     CityInfo city;
+    
+    public Address() {
+    }
 
     public String getStreet() {
         return street;

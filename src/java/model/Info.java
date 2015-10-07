@@ -27,6 +27,9 @@ public class Info implements Serializable {
     @ManyToOne
     Address address;
     
+    public Info() {
+    }
+    
     public String getEmail() {
         return email;
     }

@@ -19,6 +19,9 @@ public class Phone implements Serializable {
     @ManyToOne
     Phone phone;
     
+    public Phone() {
+    }
+    
     public Long getId() {
         return id;
     }

@@ -16,18 +16,21 @@ public class CityInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long zipCode;
+    private Long zip;
     private String city;
 
     @OneToMany
     List<Address> addressList = new ArrayList();
     
-    public Long getZipCode() {
-        return zipCode;
+    public CityInfo() {
+    }
+    
+    public Long getZip() {
+        return zip;
     }
 
-    public void setZipCode(Long zipCode) {
-        this.zipCode = zipCode;
+    public void setZip(Long zip) {
+        this.zip = zip;
     }
 
     public String getCity() {

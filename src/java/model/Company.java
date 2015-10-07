@@ -18,6 +18,9 @@ public class Company extends Info implements Serializable {
     private Long numEmployees;
     private Long markedValue;
 
+    public Company() {
+    }
+    
     public String getName() {
         return name;
     }

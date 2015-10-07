@@ -40,6 +40,9 @@ public class Person extends Info implements Serializable {
     )
     List<Hobby> hobbyList = new ArrayList();
 
+    public Person() {
+    }
+    
     public String getFirstName() {
         return firstName;
     }
