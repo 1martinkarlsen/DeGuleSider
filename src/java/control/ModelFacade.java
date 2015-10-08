@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import model.Address;
+import model.Info;
 import model.Person;
 import model.Phone;
 
@@ -17,16 +18,20 @@ public class ModelFacade {
     Query query;
 
     static Person person;
+    Info info;
 
     List<Person> personList = new ArrayList();
 
     public ModelFacade() {
-        emf = Persistence.createEntityManagerFactory("DeGuleSiderPU", null);
+        emf = Persistence.createEntityManagerFactory("DeGuleSiderPU");
     }
 
     public static void main(String[] args) {
         ModelFacade facade = new ModelFacade();
 //        facade.tester();
+        
+        person = new Person("MyFirstName", "MyLastName", "MyEmail", "MyStreet");
+        
         facade.addPerson(person);
 
     }
@@ -55,25 +60,38 @@ public class ModelFacade {
         System.out.println("Person " + p1.getFirstName() + " " + p1.getLastName() + " added to db");
     }
 
-    public void addPerson(Person p) {
+    public Person addPerson(Person p) {
         EntityManager em = emf.createEntityManager();
-
-        p = new Person("Fornavn", "Efternavn");
         
-        Address a = new Address("Adresse");
-        p.addAddres(a);
-        
-        Phone phone = new Phone("PhoneNum");
-        p.addPhone(phone);
         
         try {
             em.getTransaction().begin();
             em.persist(p);
             em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         } finally {
             em.close();
         }
-        System.out.println("Person " + p.getFirstName() + " " + p.getLastName() + " added to db");
+        
+        return p;
+        
+//        p = new Person("Fornavn", "Efternavn");
+//        
+//        Address a = new Address("Adresse");
+//        p.addAddres(a);
+//        
+//        Phone phone = new Phone("PhoneNum");
+//        p.addPhone(phone);
+//        
+//        try {
+//            em.getTransaction().begin();
+//            em.persist(p);
+//            em.getTransaction().commit();
+//        } finally {
+//            em.close();
+//        }
+//        System.out.println("Person " + p.getFirstName() + " " + p.getLastName() + " added to db");
     }
 
 //    public List<Person> getPersonsFromZip(long zip) {

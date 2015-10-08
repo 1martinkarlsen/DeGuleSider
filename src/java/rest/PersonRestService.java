@@ -9,12 +9,14 @@ import control.ModelFacade;
 import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import model.Person;
 
 @Path("person")
@@ -30,23 +32,22 @@ public class PersonRestService {
     public PersonRestService() {
     }
 
-    @GET
+    @POST
     @Produces("application/json")
-    @Path("{zip}")
-    public String getPerson(@PathParam("zip") long zip) {
-        JsonArray out = new JsonArray();
-        JsonObject json = new JsonObject();
-        List<Person> persons = facade.getPersonsFromZip(zip);
-        System.out.println(persons.size());
-        for (Person p : persons) {
-            String firstname = p.getFirstName();
-            String lastname = p.getLastName();
-            json.addProperty("firstname", firstname);
-            json.addProperty("lastname", lastname);
-
-            out.add(json);
-        }
-        return gson.toJson(out);
+    @Consumes("application/json")
+    public Response getPerson(String content) {
+        JsonObject request = parser.parse(content).getAsJsonObject();
+        JsonObject response = new JsonObject();
+        
+        Person p = gson.fromJson(request, Person.class);
+        System.out.println("Person: " + p.getFirstName());
+        p = facade.addPerson(p);
+        
+        response.addProperty("id", p.getId());
+        response.addProperty("firstname", p.getFirstName());
+        response.addProperty("lastname", p.getLastName());
+        
+        return Response.status(Response.Status.CREATED).type(MediaType.APPLICATION_JSON).entity(gson.toJson(p)).build();
     }
 
     @PUT

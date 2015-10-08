@@ -29,6 +29,11 @@ public class Address implements Serializable {
     public Address(String street){
         this.street = street;
     }
+    
+    public Address(String street, String additionalInfo) {
+        this.street = street;
+        this.additionalInfo = additionalInfo;
+    }
 
     public String getStreet() {
         return street;

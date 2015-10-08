@@ -19,13 +19,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "PERSON")
 @XmlRootElement
-//@NamedQueries({
-//    @NamedQuery(name = "Person.findByZip", query = "SELECT p.FIRSTNAME, p.LASTNAME FROM Person p " +
-//                                                    "JOIN info i ON p.ID = i.ID " +
-//                                                    "JOIN address a ON i.address_id = a.ID " +
-//                                                    "JOIN cityinfo ci ON a.CITY_ID = ci.ID " +
-//                                                    "WHERE ci.ID = '606'")
-//})
 public class Person extends Info implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,6 +44,13 @@ public class Person extends Info implements Serializable {
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+    
+    public Person(String firstName, String lastName, String email, String street) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.setEmail(email);
+        this.addAddres(new Address(street));
     }
 
     public String getFirstName() {

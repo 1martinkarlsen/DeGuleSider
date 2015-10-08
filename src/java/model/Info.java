@@ -27,9 +27,12 @@ public class Info implements Serializable {
     List<Phone> phoneList = new ArrayList();
     @ManyToOne(cascade = CascadeType.PERSIST)
     Address address;
+    
+    public Info() {
+    }
 
-    public void addAddres(Address address) {
-        this.address = address;
+    public Address addAddres(Address address) {
+        return this.address = address;
     }
 
     public Address getAddress() {
@@ -38,9 +41,6 @@ public class Info implements Serializable {
 
     public void addPhone(Phone phone) {
         phoneList.add(phone);
-    }
-
-    public Info() {
     }
 
     public String getEmail() {
