@@ -27,26 +27,32 @@ import javax.xml.bind.annotation.XmlRootElement;
 //                                                    "WHERE ci.ID = '606'")
 //})
 public class Person extends Info implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
-    
+
     @ManyToMany
     @JoinTable(
-            name="person_hobby",
-            joinColumns = @JoinColumn(name = "personId", 
-                              referencedColumnName = "id"), 
-            inverseJoinColumns = @JoinColumn(name = "hoppyId", 
-                              referencedColumnName = "id")
+            name = "person_hobby",
+            joinColumns = @JoinColumn(name = "personId",
+                    referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "hoppyId",
+                    referencedColumnName = "id")
     )
     List<Hobby> hobbyList = new ArrayList();
 
     public Person() {
     }
-    
+
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -95,5 +101,5 @@ public class Person extends Info implements Serializable {
     public String toString() {
         return "model.Person[ id=" + id + " ]";
     }
-    
+
 }

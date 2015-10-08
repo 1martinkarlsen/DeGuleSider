@@ -26,6 +26,9 @@ public class Address implements Serializable {
     
     public Address() {
     }
+    public Address(String street){
+        this.street = street;
+    }
 
     public String getStreet() {
         return street;

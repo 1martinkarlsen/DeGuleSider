@@ -10,36 +10,52 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ModelFacadeTest {
-    
+
     public ModelFacadeTest() {
     }
-    
+
     @BeforeClass
-    public static void setUpClass() {
+    public static void setUpClass() throws Exception {
     }
-    
+
     @AfterClass
-    public static void tearDownClass() {
+    public static void tearDownClass() throws Exception {
     }
-    
+
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
     }
-    
+
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
     }
-    
+
     /**
      * Test of getPersonsFromZip method, of class ModelFacade.
      */
     @Test
     public void testGetPersonsFromZip() {
-        System.out.println("getPersonsFromZip");
+        System.out.println("****getPersonsFromZip****");
         long zip = 606;
         ModelFacade instance = new ModelFacade();
         int expResult = 1;
         List<Person> result = instance.getPersonsFromZip(zip);
+        System.out.println("----test----");
+        System.out.println("list of persons in " + zip + " has " + result.size() + " inhabitants");
         assertEquals(expResult, result.size());
     }
+
+    /**
+     * Test of tester method, of class ModelFacade.
+     */
+    @Test
+    public void testTester() {
+        System.out.println("****tester****");
+        ModelFacade instance = new ModelFacade();
+        System.out.println("----test----");
+        instance.tester();
+        
+                
+    }
+
 }
