@@ -10,11 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Info implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,24 +25,24 @@ public class Info implements Serializable {
 
     @OneToMany(cascade = CascadeType.PERSIST)
     List<Phone> phoneList = new ArrayList();
-    //@ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     Address address;
-    
+
     public void addAddres(Address address) {
         this.address = address;
     }
-    
+
     public Address getAddress() {
         return address;
     }
-    
+
     public void addPhone(Phone phone) {
         phoneList.add(phone);
     }
-    
+
     public Info() {
     }
-    
+
     public String getEmail() {
         return email;
     }
@@ -81,5 +83,5 @@ public class Info implements Serializable {
     public String toString() {
         return "model.Info[ id=" + id + " ]";
     }
-    
+
 }
