@@ -10,35 +10,28 @@ import model.Person;
 
 public class ModelFacade {
 
-    EntityManagerFactory emf;
+    private ModelFacade uniqInstance = null;
+    
+    DBConnecter dbCon;
     EntityManager em;
     Query query;
 
     Person person;
 
     List<Person> personList = new ArrayList();
-    
-    public static void main(String[] args) {
-        ModelFacade facade = new ModelFacade();
-    }
 
     public ModelFacade() {
-        if (emf == null) {
-            emf = Persistence.createEntityManagerFactory("DeGuleSiderPU");
-        }
-
-        try {
-            em = emf.createEntityManager();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
     }
 
-    public List<Person> getPersonsFromZip(long zip) {
-        query.setParameter("zip", zip);
-        query = em.createNamedQuery("Person.findByZip");
-
-        return personList = query.getResultList();
+    public List<Person> getPersonsFromZip(long zip) {   
+        dbCon = DBConnecter.getInstance();
+        em = dbCon.getManager();
+        
+        return em.createNativeQuery("SELECT p.FIRSTNAME, p.LASTNAME FROM Person p " +
+                                    "JOIN Info i ON p.ID = i.id " +
+                                    "JOIN Address a ON i.address_id = a.ID " +
+                                    "JOIN CityInfo ci ON a.CITY_ID = ci.ID " +
+                                    "WHERE ci.ID = " + zip).getResultList();
     }
 
 }

@@ -19,13 +19,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "PERSON")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Person.findByZip", query = "SELECT p.FIRSTNAME, p.LASTNAME FROM Person p " +
-                                                    "JOIN info i ON p.ID = i.ID " +
-                                                    "JOIN address a ON i.address_id = a.ID " +
-                                                    "JOIN cityinfo ci ON a.CITY_ID = ci.ID " +
-                                                    "WHERE ci.ID = '606'")
-})
+//@NamedQueries({
+//    @NamedQuery(name = "Person.findByZip", query = "SELECT p.FIRSTNAME, p.LASTNAME FROM Person p " +
+//                                                    "JOIN info i ON p.ID = i.ID " +
+//                                                    "JOIN address a ON i.address_id = a.ID " +
+//                                                    "JOIN cityinfo ci ON a.CITY_ID = ci.ID " +
+//                                                    "WHERE ci.ID = '606'")
+//})
 public class Person extends Info implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

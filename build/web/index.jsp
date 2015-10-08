@@ -6,6 +6,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div id="authors"> Kasper Worm, Rasmus Hansen, Martin Karlsen </div>
+
+        <div id="class">B class</div>
+
+        <div id= "group"> Group number ???</div>
     </body>
 </html>
