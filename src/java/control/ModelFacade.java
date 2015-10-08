@@ -27,11 +27,11 @@ public class ModelFacade {
         dbCon = DBConnecter.getInstance();
         em = dbCon.getManager();
         
-        return em.createNativeQuery("SELECT p.FIRSTNAME, p.LASTNAME FROM Person p " +
-                                    "JOIN Info i ON p.ID = i.id " +
-                                    "JOIN Address a ON i.address_id = a.ID " +
-                                    "JOIN CityInfo ci ON a.CITY_ID = ci.ID " +
-                                    "WHERE ci.ID = " + zip).getResultList();
+        return em.createNativeQuery("SELECT p.FIRSTNAME, p.LASTNAME FROM person p " +
+                                "JOIN info i ON p.ID = i.id " +
+                                "JOIN address a ON i.address_id = a.ID " +
+                                "JOIN cityinfo ci ON a.CITY_ID = ci.ID " +
+                                "WHERE ci.ID = " + zip).getResultList();
     }
 
 }
