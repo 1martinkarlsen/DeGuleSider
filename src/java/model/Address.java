@@ -2,7 +2,6 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,8 +21,8 @@ public class Address implements Serializable {
     
     @OneToMany
     List<Info> infoList = new ArrayList();
-    @ManyToOne
-    CityInfo city;
+    //@ManyToOne
+    //CityInfo city;
     
     public Address() {
     }

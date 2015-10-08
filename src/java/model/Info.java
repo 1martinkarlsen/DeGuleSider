@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,10 +23,22 @@ public class Info implements Serializable {
     private Long id;
     private String email;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     List<Phone> phoneList = new ArrayList();
-    @ManyToOne
+    //@ManyToOne(cascade = CascadeType.PERSIST)
     Address address;
+    
+    public void addAddres(Address address) {
+        this.address = address;
+    }
+    
+    public Address getAddress() {
+        return address;
+    }
+    
+    public void addPhone(Phone phone) {
+        phoneList.add(phone);
+    }
     
     public Info() {
     }
