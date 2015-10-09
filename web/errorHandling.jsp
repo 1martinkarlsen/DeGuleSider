@@ -6,7 +6,6 @@
     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
 
         <div>Error Handling documentation</div>
-        <a href="documentation.html">Back to documentation overview</a>
 
         <div id="section">
             <p>

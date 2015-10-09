@@ -6,7 +6,6 @@
     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
 
         <div>Test</div>
-        <a href="documentation.html">Back to documentation overview</a>
         <div id="section">
             <p>
                 Vi har lavet nogle JUnit test hvor vi tester vores Facade og vores RestService.
@@ -14,7 +13,7 @@
             </p>
             <p>
                 Den første test vi lavede var vores JUnit test hvor vi adder en person
-                <img src="../Images/JUnitTest.png" alt="JUnit Test" width="500" height="300" >
+                <img src="Images/JUnitTest.png" alt="JUnit Test" width="500" height="300" >
             </p>
             <p>
                 Den anden test vi har lavet var en RestAssured test som er bygget op på en lidt anden måde.
@@ -22,7 +21,7 @@
                 I bund og grund kan man sige at når man bruger PostMan og skriver sit post request gør du det
                 samme som du ville gøre i en restAssured test, bare manuelt, så en restAssured test er et PostMan
                 request, gjort automatisk
-                <img src="../Images/restAssuredTest.png" alt="JUnit Test" width="500" height="300" >
+                <img src="Images/restAssuredTest.png" alt="JUnit Test" width="500" height="300" >
             </p>
         </div>
     </div>

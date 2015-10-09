@@ -42,7 +42,7 @@
                                     <input id="street" type="text" name="street" /><p>
 
                                         <label for="zip">Zip code: </label>
-                                    <input id="personIDNum" type="text" name="zip" /><p>
+                                    <input id="zip" type="text" name="zip" /><p>
 
                                         <label for="hobby">Hobby: </label>
                                     <input id="hobby" type="text" name="hobby" /><p>
@@ -66,10 +66,6 @@
                 </div>
             </div>
 
-
-
-
-
         </div>
     </div>
 
@@ -83,10 +79,12 @@
                         <div id="firstname">Firstname: </div>
                         <div id="lastname">Lastname:</div>
                         <div id="email">Email: </div>
+                        <!--
                         <div id="phone">Phone: </div>
                         <div id="street">Street: </div>
                         <div id="zip">Zip: </div>
                         <div id="hobby">Hobby: </div>
+                        -->
                     </div>
                 </fieldset>
             </div> 

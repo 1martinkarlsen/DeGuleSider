@@ -5,35 +5,7 @@
             30
         </session-timeout>
     </session-config>
-    <security-constraint>
-        <display-name>AdminConstraint</display-name>
-        <web-resource-collection>
-            <web-resource-name>Add Person</web-resource-name>
-            <description/>
-            <url-pattern>/pages/addPerson.jsp</url-pattern>
-        </web-resource-collection>
-    </security-constraint>
-    <security-constraint>
-        <display-name>ApiConstraint</display-name>
-        <web-resource-collection>
-            <web-resource-name>api</web-resource-name>
-            <description/>
-            <url-pattern>/api/person/*</url-pattern>
-        </web-resource-collection>
-    </security-constraint>
     <login-config>
         <auth-method>BASIC</auth-method>
     </login-config>
-    <security-role>
-        <description/>
-        <role-name>User</role-name>
-    </security-role>
-    <security-role>
-        <description/>
-        <role-name>Admin</role-name>
-    </security-role>
-    <security-role>
-        <description/>
-        <role-name>role1</role-name>
-    </security-role>
 </web-app>

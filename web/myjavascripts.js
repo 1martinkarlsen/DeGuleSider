@@ -21,18 +21,22 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8084/DeGuleSider/api/person/",
+            url: "http://localhost:8080/DeGuleSider/api/person/",
             data: JSON.stringify(jsonObj),
             dataType: "json",
             contentType: "application/json; charset=utf-8"
         }).done(function (person) {
 
-           $(".personContent #firstname").html(person.firstname);
-           $(".personContent #lastname").html(person.lastname);
-           $(".personContent #email").html(person.email);
+            $(".personContent #firstname").html(person.firstname);
+            $(".personContent #lastname").html(person.lastname);
+            $(".personContent #email").html(person.email);
+            $(".personContent #phone").html(person.phone);
+            $(".personContent #street").html(person.street);
+            $(".personContent #zip").html(person.zip);
+            $(".personContent #hobby").html(person.hobby);
 
         }).fail(function () {
-
+            alert(first);
             alert("Failed");
         });
     });
