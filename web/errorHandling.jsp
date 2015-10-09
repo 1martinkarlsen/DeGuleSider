@@ -10,16 +10,16 @@
         <div id="section">
             <p>
                 Vores error handling er lavet ved at vi har oprettet vores egne exceptions, som gør at når vi fanger
-                en fejl på vores site, så vil den exception blive kaldet og vist i browseren.            
+                en fejl på vores site, så vil den pågældende exception blive kaldet og vist i browseren.            
             </p>
             <p>
-                Vi har 2 exceptions, vores NotFoundException, som er en generel exception som bliver brugt hvis vi søger
+                Vi har 2 exceptions, vores DataNotFoundException, som er en generel exception, bliver brugt hvis vi søger
                 efter noget andet end en person. 
                 <br>
-                det skal siges at vores NotFoundException ikke bliver brugt i projectet, men var tiltænkt viderebygning
+                Det skal siges at vores NotFoundException ikke bliver brugt i projectet, men var tiltænkt en viderebygning
                 projectet hvis vi kom så langt.
                 <br>
-                Den anden exception vi bruger er vores PersonNotFoundException som sender brugeren hen til en
+                Den anden exception vi bruger er vores PersonNotFoundException, som sender brugeren hen til en
                 404 code med en besked om at den person du søgte efter ikke kunne findes.
             </p>
         </div>

@@ -9,8 +9,11 @@
         <div id="section">
             <p>
                 Vi har brugt inheritanceType.Joined.
-                Vi valgte at bruge joined da det er den der bedst overholder normalformerne for database bygning
-                i denne opgave
+                Vi valgte at bruge joined, da det er den der bedst overholder normalformerne for database bygning
+                i denne opgave.
+                
+                Man kunne også havde overvejet at bruge inheritanceType.Single-Table men den ville generer en 
+                masse null-værdier og en masse redundans data, som vi ikke ville lave være interesseret i.
             </p>
         </div>
     </div>

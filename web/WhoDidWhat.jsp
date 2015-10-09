@@ -46,8 +46,8 @@
                 </tr>
                 <tr>
                     <td>Rest</td>
-                    <td></td> 
-                    <td></td>
+                    <td>x</td> 
+                    <td>x</td>
                     <td>x</td>
                 </tr>
                 <tr>
@@ -58,8 +58,8 @@
                 </tr>
                 <tr>
                     <td>Security</td>
-                    <td></td> 
-                    <td></td>
+                    <td>x</td> 
+                    <td>x</td>
                     <td>x</td>
                 </tr>
             </table>

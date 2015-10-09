@@ -7,8 +7,8 @@
         <div>REST documentation</div>
         <div id="section">
             <p>
-                Rest bruger HTTP metoderne(CRUD-POST,PUT,GET,DELETE) på en simpel måde og gør så vidt muligt
-                så det meste af processen kommer over på client delen(brugerens browser)-
+                Rest bruger HTTP metoderne (CRUD - POST, PUT, GET, DELETE) på en simpel måde og gør og flytter det meste 
+                af processen over på client delen (brugerens browser).
                 
             </p>
         </div>
