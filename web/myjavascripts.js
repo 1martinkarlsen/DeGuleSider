@@ -1,52 +1,39 @@
 $(document).ready(function () {
 
-//Stops the submit request
-    $("#myAjaxRequestForm").click(function (e) {
-        e.preventDefault();
-    });
-    //checks for the button click event
     $("#myButton").click(function (e) {
 
-//get the form data and then serialize that
-        dataString = $("#myAjaxRequestForm").serialize();
-        //get the form data using another method 
-//       
-        //make the AJAX request, dataType is set to json
-        //meaning we are expecting JSON data in response from the server
-        
-        alert("Input: " + dataString);
-        
-        
+        var first = $("#firstname").val();
+        var last = $("#lastname").val();
+        var email = $("#email").val();
+        var phone = $("#phone").val();
+        var street = $("#street").val();
+        var zip = $("#zip").val();
+        var hobby = $("#hobby").val();
+
+        var jsonObj = new Object();
+        jsonObj["firstName"] = first;
+        jsonObj["lastName"] = last;
+        jsonObj["email"] = email;
+        jsonObj["phone"] = phone;
+        jsonObj["street"] = street;
+        jsonObj["zip"] = zip;
+        jsonObj["hobby"] = hobby;
+
         $.ajax({
             type: "POST",
-            data: { firstname: "John", lastname: "Boston" },
-            dataType: "application/json",
-            url: "/api/person"
+            url: "http://localhost:8084/DeGuleSider/api/person/",
+            data: JSON.stringify(jsonObj),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8"
         }).done(function (person) {
 
-            person = JSON.parse(person);
-            
-            var firstname = person[0].firstname;
-            var lastname = person[0].lastname;
-            var email = person[0].email;
-            var phone = person[0].phone;
-            var street = person[0].street;
-            var zip = person[0].zip;
-            var hobby = person[0].hobby;
-
-            $(".personContent #firstname").innerHTML(firstname);
-            $(".personContent #lastname").innerHTML(lastname);
-            $(".personContent #email").innerHTML(email);
-            $(".personContent #phone").innerHTML(phone);
-            $(".personContent #street").innerHTML(street);
-            $(".personContent #zip").innerHTML(zip);
-            $(".personContent #hobby").innerHTML(hobby);
+           $(".personContent #firstname").html(person.firstname);
+           $(".personContent #lastname").html(person.lastname);
+           $(".personContent #email").html(person.email);
 
         }).fail(function () {
-           
+
             alert("Failed");
         });
     });
 });
-
-

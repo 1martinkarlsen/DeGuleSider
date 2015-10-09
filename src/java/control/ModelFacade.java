@@ -1,5 +1,6 @@
 package control;
 
+import exception.DataNotFoundException;
 import exception.PersonNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +32,11 @@ public class ModelFacade {
         return emf.createEntityManager();
     }
 
-    public Person addPerson(Person p) throws PersonNotFoundException {
+    public Person addPerson(Person p) throws DataNotFoundException {
         EntityManager em = emf.createEntityManager();
 
         if (p == null) {
-            throw new PersonNotFoundException();
+            throw new DataNotFoundException("It is required to fill in firstname and lastname, to create a person.");
         }
 
         try {

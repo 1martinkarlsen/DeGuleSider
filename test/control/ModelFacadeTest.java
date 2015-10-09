@@ -1,5 +1,6 @@
 package control;
 
+import exception.DataNotFoundException;
 import exception.PersonNotFoundException;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -38,7 +39,7 @@ public class ModelFacadeTest {
     }
 
     @Test
-    public void testAddPerson() throws PersonNotFoundException {
+    public void testAddPerson() throws DataNotFoundException, PersonNotFoundException {
         Person newPerson = facade.addPerson(new Person("aaa", "bbb"));
         assertEquals("aaa", newPerson.getFirstName());
         newPerson = facade.getPerson(newPerson.getId());

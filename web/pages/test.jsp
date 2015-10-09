@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>Test</title>
-        <style>
-            #section {
-                width:350px;
-                padding:10px;	 	 
-            }
-        </style>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
+<t:baseTemplate pageName="Home">
+    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+
         <div>Test</div>
         <a href="documentation.html">Back to documentation overview</a>
         <div id="section">
@@ -37,5 +25,5 @@ and open the template in the editor.
                 <img src="../Images/restAssuredTest.png" alt="JUnit Test" width="500" height="300" >
             </p>
         </div>
-    </body>
-</html>
+    </div>
+</t:baseTemplate>

@@ -37,7 +37,5 @@ public class PersonRestServiceTest {
                 body("firstname", equalTo("Hans")).
                 body("lastname", equalTo("Klausen")).
                 body("email", equalTo("my@email.dk"));
-        
-                
     }
 }
