@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,8 +22,24 @@ public class Address implements Serializable {
     
     @OneToMany
     List<Info> infoList = new ArrayList();
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     CityInfo city;
+
+    public List<Info> getInfoList() {
+        return infoList;
+    }
+
+    public void setInfoList(List<Info> infoList) {
+        this.infoList = infoList;
+    }
+
+    public CityInfo getCity() {
+        return city;
+    }
+
+    public void setCity(CityInfo city) {
+        this.city = city;
+    }
     
     public Address() {
     }

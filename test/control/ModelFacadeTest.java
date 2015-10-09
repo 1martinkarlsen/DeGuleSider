@@ -1,6 +1,9 @@
 package control;
 
+import exception.PersonNotFoundException;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import model.Person;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,38 +14,35 @@ import static org.junit.Assert.*;
 
 public class ModelFacadeTest {
 
+    ModelFacade facade = new ModelFacade(Persistence.createEntityManagerFactory("DeGuleSiderPU"));
+    private long idForOle = 1;
+    
     public ModelFacadeTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
+        EntityManager em = facade.getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.createQuery("delete from Person").executeUpdate();
+            Person p = new Person("Ole", "Hansen");
+            em.persist(p);
+            em.persist(new Person("Hanne", "Hansen"));
+            em.persist(new Person("Peter", "Olsen"));
+            em.getTransaction().commit();
+            idForOle = p.getId();
+        } finally {
+            em.close();
+        }
     }
 
-    @After
-    public void tearDown() throws Exception {
-    }
-
-    /**
-     * Test of tester method, of class ModelFacade.
-     */
     @Test
-    public void testAddPerson() {
-        Person p = new Person("MitSuperSejeFornavn", "MitSuperSejeEfternavn", "Email@hej.dk", "Vindervej 4");
-        System.out.println("****tester****");
-        ModelFacade instance = new ModelFacade();
-        System.out.println("----test----");
-        Person pResult = instance.addPerson(p);
-        String firstName = pResult.getFirstName();
-        
-        assertEquals(p.getFirstName(), firstName);        
+    public void testAddPerson() throws PersonNotFoundException {
+        Person newPerson = facade.addPerson(new Person("aaa", "bbb"));
+        assertEquals("aaa", newPerson.getFirstName());
+        newPerson = facade.getPerson(newPerson.getId());
+        assertEquals("aaa", newPerson.getFirstName());
     }
 
 }

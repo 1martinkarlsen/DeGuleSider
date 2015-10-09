@@ -7,6 +7,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import control.ModelFacade;
 import java.util.List;
+import javax.persistence.Persistence;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -22,7 +23,7 @@ import model.Person;
 @Path("person")
 public class PersonRestService {
 
-    ModelFacade facade = new ModelFacade();
+    ModelFacade facade = new ModelFacade(Persistence.createEntityManagerFactory("DeGuleSiderPU"));
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     JsonParser parser = new JsonParser();
     
@@ -36,19 +37,34 @@ public class PersonRestService {
     @Produces("application/json")
     @Consumes("application/json")
     public String getPerson(String content) {
-        JsonObject response = new JsonObject();
-        System.out.println(content);
         Person p = gson.fromJson(content, Person.class);
+        JsonObject response = new JsonObject();
+        
         try {
             p = facade.addPerson(p);
         } catch (Exception e) {
         }
         
-        
         response.addProperty("id", p.getId());
         response.addProperty("firstname", p.getFirstName());
         response.addProperty("lastname", p.getLastName());
         response.addProperty("email", p.getEmail());
+        
+        if(p.getAddress() != null) {
+            JsonObject addr = new JsonObject();
+            
+            addr.addProperty("street", p.getAddress().getStreet());
+            if(p.getAddress().getAdditionalInfo() != null) {
+                addr.addProperty("additionalInfo", p.getAddress().getAdditionalInfo());
+            }
+            
+            if(p.getAddress().getCity() != null) {
+                JsonObject city = new JsonObject();
+                
+                city.addProperty("zip", p.getAddress().getCity().getZip());
+                city.addProperty("city", p.getAddress().getCity().getCity());
+            }
+        }
         
         return gson.toJson(response);
         

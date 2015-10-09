@@ -25,10 +25,20 @@ public class PersonRestServiceTest {
     
     @Test
     public void testAddPerson() {
+        int id =
         given().
                 contentType(MediaType.APPLICATION_JSON).
+                body("{\"firstName\" : \"kawadl\", \"lastName\" : \"akwd\", \"email\" : \"my@email.dk\",\n" +
+                "    \"phoneList\" : [{\"number\" : \"13371337\", \"description\" : \"Home number\"},\n" +
+                "                    {\"number\" : \"78945612\", \"description\" : \"Mobile phone\"}],\n" +
+                "    \"hobbyList\" : [{\"name\" : \"fodbold\"}, {\"name\" : \"Programming\", \"description\" : \"HTML, CSS, Java, jQuery, Ajax, Rest Api og mere\"}],\n" +
+                "    \"address\" : {\"street\" : \"Totally street G.\", \"city\" : {\"zip\" : \"2800\", \"city\" : \"Kongens Lyngby\"}}}").
         when().
-                post("/").
+                post().
+        then().
+                extract().path("id");
+        when().
+                get("/"+id).
         then().
                 statusCode(200);
     }
