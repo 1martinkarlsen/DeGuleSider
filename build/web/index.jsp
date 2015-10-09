@@ -25,23 +25,45 @@
 
         <form id="myAjaxRequestForm">
             <fieldset>
-                <legend>Ajax opslag</legend>
+                <legend>Post funktion</legend>
                 <p>
-                    <label for="personID">Person ID:</label>
-                    <input id="personIDNum" type="text" name="personID" />
+                
+                <label for="firstname">Firstname: </label>
+                <input id="firstname" type="text" name="firstname" /><p>
+
+                <label for="lastname">Lastname: </label>
+                <input id="lastname" type="text" name="lastname" /><p>
+
+                <label for="email">Email: </label>
+                <input id="email" type="text" name="email" /><p>
+                    
+                <label for="phone">Phone: </label>
+                <input id="phone" type="text" name="phone" /><p>
+                
+                <label for="street">Street: </label>
+                <input id="street" type="text" name="street" /><p>
+                    
+                <label for="zip">Zip code: </label>
+                <input id="personIDNum" type="text" name="zip" /><p>
+                    
+                <label for="hobby">Hobby: </label>
+                <input id="hobby" type="text" name="hobby" /><p>
+
                 </p>
 
                 <p>
+                     <label for="myButton">Submit: </label>
                     <button id="myButton" type="button" value="Submit" click="sendInfo()"/>
                 </p>
 
             </fieldset>
+            <p>
         </form>
         <div id="responseSection">
             <fieldset>
                 <legend>Response</legend>
                 <div class="personContent">
-                    <div id="personID">Person ID: </div>
+                    
                     <div id="firstname">Firstname: </div>
                     <div id="lastname">Lastname:</div>
                     <div id="email">Email: </div>
