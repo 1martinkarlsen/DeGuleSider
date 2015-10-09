@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Test</title>
+        <style>
+            #section {
+                width:350px;
+                padding:10px;	 	 
+            }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Test</div>
+        <a href="documentation.html">Back to documentation overview</a>
+        <div id="section">
+            <p>
+                Vi har lavet nogle JUnit test hvor vi tester vores Facade og vores RestService.
+                Vi tester på om vi kan tilføje en person til databasen.
+            </p>
+            <p>
+                Den første test vi lavede var vores JUnit test hvor vi adder en person
+                <img src="../Images/JUnitTest.png" alt="JUnit Test" width="500" height="300" >
+            </p>
+            <p>
+                Den anden test vi har lavet var en RestAssured test som er bygget op på en lidt anden måde.
+                RestAssuredTesten tester på vores HTTP metode om der er hul igennem til hjemmesiden og serveren
+                I bund og grund kan man sige at når man bruger PostMan og skriver sit post request gør du det
+                samme som du ville gøre i en restAssured test, bare manuelt, så en restAssured test er et PostMan
+                request, gjort automatisk
+                <img src="../Images/restAssuredTest.png" alt="JUnit Test" width="500" height="300" >
+            </p>
+        </div>
+    </body>
+</html>
