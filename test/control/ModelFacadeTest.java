@@ -31,33 +31,18 @@ public class ModelFacadeTest {
     }
 
     /**
-     * Test of getPersonsFromZip method, of class ModelFacade.
-     */
-//    @Test
-//    public void testGetPersonsFromZip() {
-//        System.out.println("****getPersonsFromZip****");
-//        long zip = 606;
-//        ModelFacade instance = new ModelFacade();
-//        int expResult = 0;
-//        List<Person> result = instance.getPersonsFromZip(zip);
-//        System.out.println("----test----");
-//        System.out.println("Expected result: 0 in List");
-//        System.out.println("list of persons in " + zip + " has: " + result.size() + " citizen(s)");
-//        assertEquals(expResult, result.size());
-//    }
-
-    /**
      * Test of tester method, of class ModelFacade.
      */
     @Test
     public void testAddPerson() {
-        Person p = new Person();
+        Person p = new Person("MitSuperSejeFornavn", "MitSuperSejeEfternavn", "Email@hej.dk", "Vindervej 4");
         System.out.println("****tester****");
         ModelFacade instance = new ModelFacade();
         System.out.println("----test----");
-        instance.addPerson(p);
+        Person pResult = instance.addPerson(p);
+        String firstName = pResult.getFirstName();
         
-                
+        assertEquals(p.getFirstName(), firstName);        
     }
 
 }

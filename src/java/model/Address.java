@@ -21,8 +21,8 @@ public class Address implements Serializable {
     
     @OneToMany
     List<Info> infoList = new ArrayList();
-    //@ManyToOne
-    //CityInfo city;
+    @ManyToOne
+    CityInfo city;
     
     public Address() {
     }

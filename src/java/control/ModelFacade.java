@@ -1,5 +1,6 @@
 package control;
 
+import exception.PersonNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -30,39 +31,23 @@ public class ModelFacade {
         ModelFacade facade = new ModelFacade();
 //        facade.tester();
         
-        person = new Person("MyFirstName", "MyLastName", "MyEmail", "MyStreet");
+        person = new Person("MyFirstName", "MyLastName");
+        person.addAddres(new Address("MyStreet"));
+        person.addPhone(new Phone("13371337"));
         
-        facade.addPerson(person);
-
-    }
-
-    public void tester() {
-        EntityManager em = emf.createEntityManager();
-        Person p1 = new Person("Lars", "Larsen");
-
-        Address a = new Address("Test Street");
-        p1.addAddres(a);
-
-        Phone phone = new Phone("12345678");
-        p1.addPhone(phone);
-
-        System.out.println("FirstName of person added: " + p1.getFirstName());
-
         try {
-            em.getTransaction().begin();
-            em.persist(p1);
-//            em.persist(p1.getAddress());
-            em.getTransaction().commit();
-        } finally {
-            em.close();
-
+            facade.addPerson(person);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        System.out.println("Person " + p1.getFirstName() + " " + p1.getLastName() + " added to db");
     }
 
-    public Person addPerson(Person p) {
+    public Person addPerson(Person p) throws PersonNotFoundException {
         EntityManager em = emf.createEntityManager();
         
+        if(p == null) {
+            throw new PersonNotFoundException();
+        }
         
         try {
             em.getTransaction().begin();

@@ -24,11 +24,11 @@ public class PersonRestServiceTest {
     }
     
     @Test
-    public void testGetPersonByZip() {
+    public void testAddPerson() {
         given().
                 contentType(MediaType.APPLICATION_JSON).
         when().
-                get("/999").
+                post("/").
         then().
                 statusCode(200);
     }

@@ -35,19 +35,24 @@ public class PersonRestService {
     @POST
     @Produces("application/json")
     @Consumes("application/json")
-    public Response getPerson(String content) {
-        JsonObject request = parser.parse(content).getAsJsonObject();
+    public String getPerson(String content) {
         JsonObject response = new JsonObject();
+        System.out.println(content);
+        Person p = gson.fromJson(content, Person.class);
+        try {
+            p = facade.addPerson(p);
+        } catch (Exception e) {
+        }
         
-        Person p = gson.fromJson(request, Person.class);
-        System.out.println("Person: " + p.getFirstName());
-        p = facade.addPerson(p);
         
         response.addProperty("id", p.getId());
         response.addProperty("firstname", p.getFirstName());
         response.addProperty("lastname", p.getLastName());
+        response.addProperty("email", p.getEmail());
         
-        return Response.status(Response.Status.CREATED).type(MediaType.APPLICATION_JSON).entity(gson.toJson(p)).build();
+        return gson.toJson(response);
+        
+//        return Response.status(Response.Status.CREATED).type(MediaType.APPLICATION_JSON).entity(gson.toJson(p)).build();
     }
 
     @PUT
