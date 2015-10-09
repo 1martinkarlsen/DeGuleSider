@@ -26,14 +26,14 @@ $(document).ready(function () {
         }).done(function (person) {
 
             person = JSON.parse(person);
-            var personID = "personID";
-            var firstname = "firstname";
-            var lastname = "lastname";
-            var email = "email";
-            var personID = "phone";
-            var firstname = "street";
-            var lastname = "zip";
-            var email = "hobby";
+            var personID = person[0].personID;
+            var firstname = person[0].firstname;
+            var lastname = person[0].lastname;
+            var email = person[0].email;
+            var phone = person[0].phone;
+            var street = person[0].street;
+            var zip = person[0].zip;
+            var hobby = person[0].hobby;
 
             $(".personContent #personID").html(personID);
             $(".personContent #firstname").html(firstname);

@@ -41,14 +41,14 @@
             <fieldset>
                 <legend>Response</legend>
                 <div class="personContent">
-                    <div id="personID"></div>
-                    <div id="firstname"></div>
-                    <div id="lastname"></div>
-                    <div id="email"></div>
-                    <div id="phone"></div>
-                    <div id="street"></div>
-                    <div id="zip"></div>
-                    <div id="hobby"></div>
+                    <div id="personID">Person ID: </div>
+                    <div id="firstname">Firstname: </div>
+                    <div id="lastname">Lastname:</div>
+                    <div id="email">Email: </div>
+                    <div id="phone">Phone: </div>
+                    <div id="street">Street: </div>
+                    <div id="zip">Zip: </div>
+                    <div id="hobby">Hobby: </div>
                 </div>
             </fieldset>
         </div>   
