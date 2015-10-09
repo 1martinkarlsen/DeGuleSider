@@ -10,11 +10,14 @@ $(document).ready(function () {
 //get the form data and then serialize that
         dataString = $("#myAjaxRequestForm").serialize();
         //get the form data using another method 
-        var personID = $("input#personID").val();
-        dataString = "personID=" + personID;
+//        var personID = $("input#personIDnum").val();
+//        dataString = "" + personID;
         //make the AJAX request, dataType is set to json
         //meaning we are expecting JSON data in response from the server
-
+        var personID = dataString;
+        alert("Input: " + personID);
+        
+        
         $.ajax({
             type: "POST",
             data: dataString,

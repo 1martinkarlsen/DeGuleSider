@@ -28,7 +28,7 @@
                 <legend>Ajax opslag</legend>
                 <p>
                     <label for="personID">Person ID:</label>
-                    <input id="personIDtable" type="text" name="personID" />
+                    <input id="personIDNum" type="text" name="personID" />
                 </p>
 
                 <p>
