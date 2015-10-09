@@ -67,8 +67,8 @@ public class PersonRestService {
         }
         
         return gson.toJson(response);
-        
-//        return Response.status(Response.Status.CREATED).type(MediaType.APPLICATION_JSON).entity(gson.toJson(p)).build();
+      
+//        return Response.status(Response.Status.CREATED).type(MediaType.APPLICATION_JSON).entity(gson.toJson(response)).build();
     }
 
     @PUT

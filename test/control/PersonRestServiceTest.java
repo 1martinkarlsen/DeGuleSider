@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
 import static com.jayway.restassured.RestAssured.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 public class PersonRestServiceTest {
     
@@ -17,7 +18,7 @@ public class PersonRestServiceTest {
         public static void setUpBeforeClass() throws Exception {
         baseURI = "http://localhost:8084/";
         defaultParser = Parser.JSON;
-        basePath = "/DeGuleSider/api/person";
+        basePath = "DeGuleSider/api/person";
     }
         
     public PersonRestServiceTest() {
@@ -25,21 +26,18 @@ public class PersonRestServiceTest {
     
     @Test
     public void testAddPerson() {
-        int id =
         given().
                 contentType(MediaType.APPLICATION_JSON).
-                body("{\"firstName\" : \"kawadl\", \"lastName\" : \"akwd\", \"email\" : \"my@email.dk\",\n" +
-                "    \"phoneList\" : [{\"number\" : \"13371337\", \"description\" : \"Home number\"},\n" +
-                "                    {\"number\" : \"78945612\", \"description\" : \"Mobile phone\"}],\n" +
-                "    \"hobbyList\" : [{\"name\" : \"fodbold\"}, {\"name\" : \"Programming\", \"description\" : \"HTML, CSS, Java, jQuery, Ajax, Rest Api og mere\"}],\n" +
-                "    \"address\" : {\"street\" : \"Totally street G.\", \"city\" : {\"zip\" : \"2800\", \"city\" : \"Kongens Lyngby\"}}}").
+                body("{'firstName' : 'Hans', 'lastName' : 'Klausen', 'email' : 'my@email.dk'}").
         when().
-                post().
+                post("").
         then().
-                extract().path("id");
-        when().
-                get("/"+id).
-        then().
-                statusCode(200);
+                statusCode(Response.Status.OK.getStatusCode()).
+                contentType(MediaType.APPLICATION_JSON).
+                body("firstname", equalTo("Hans")).
+                body("lastname", equalTo("Klausen")).
+                body("email", equalTo("my@email.dk"));
+        
+                
     }
 }
