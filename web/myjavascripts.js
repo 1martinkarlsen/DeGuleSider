@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/DeGuleSider/api/person/",
+            url: "http://localhost:8084/DeGuleSider/api/person/",
             data: JSON.stringify(jsonObj),
             dataType: "json",
             contentType: "application/json; charset=utf-8"
@@ -36,7 +36,6 @@ $(document).ready(function () {
             $(".personContent #hobby").html(person.hobby);
 
         }).fail(function () {
-            alert(first);
             alert("Failed");
         });
     });

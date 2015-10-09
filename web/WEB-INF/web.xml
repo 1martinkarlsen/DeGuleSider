@@ -5,7 +5,34 @@
             30
         </session-timeout>
     </session-config>
+    <security-constraint>
+        <display-name>Constraint1</display-name>
+        <web-resource-collection>
+            <web-resource-name>Admin</web-resource-name>
+            <description>Admin</description>
+            <url-pattern>/api/person/*</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>User</web-resource-name>
+            <description>User</description>
+            <url-pattern>/api/person/*</url-pattern>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Admin</description>
+            <role-name>admin</role-name>
+            <role-name>User</role-name>
+        </auth-constraint>
+    </security-constraint>
     <login-config>
         <auth-method>BASIC</auth-method>
     </login-config>
+    <security-role>
+        <description>Kan alt</description>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <description>Kan kun læse</description>
+        <role-name>User</role-name>
+    </security-role>
 </web-app>
