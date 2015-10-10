@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>De Gule Sider part2</title>
+        <title>De Gule Sider CA2</title>
 
         <!-- Style -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> <!-- Latest compiled and minified CSS -->
@@ -61,6 +61,7 @@
                                 <li><a href="tutorial.jsp">Tutorial</a></li>
                             </ul>
                             <li><a href="WhoDidWhat.jsp">Who did what</a></li>
+                            <!--<li><a href="problems.jsp">Problems</a></li> -->
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->

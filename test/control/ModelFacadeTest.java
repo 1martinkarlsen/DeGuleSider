@@ -1,5 +1,6 @@
 package control;
 
+import deploy.DeploymentConfiguration;
 import exception.DataNotFoundException;
 import exception.PersonNotFoundException;
 import java.util.List;
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
 
 public class ModelFacadeTest {
 
-    ModelFacade facade = new ModelFacade(Persistence.createEntityManagerFactory("DeGuleSiderPU"));
+    ModelFacade facade = new ModelFacade(Persistence.createEntityManagerFactory(DeploymentConfiguration.PU_NAME));
     private long idForOle = 1;
     
     public ModelFacadeTest() {

@@ -9,7 +9,7 @@
 
             <div id="class">B class</div>
 
-            <div id= "group"> Group number ???</div>
+            <div id= "group"> Group number 9</div>
         </div>
     </div>
 

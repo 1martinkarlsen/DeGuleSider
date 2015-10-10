@@ -6,6 +6,6 @@ public class SchemaBuilder {
     
     public static void main(String[] args) {
         
-         Persistence.generateSchema("DeGuleSiderPU", null);
+         Persistence.generateSchema(deploy.DeploymentConfiguration.PU_NAME, null);
     }
 }

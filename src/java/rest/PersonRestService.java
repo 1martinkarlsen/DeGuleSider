@@ -6,6 +6,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import control.ModelFacade;
+import deploy.DeploymentConfiguration;
 import java.util.List;
 import javax.persistence.Persistence;
 import javax.ws.rs.core.Context;
@@ -23,7 +24,7 @@ import model.Person;
 @Path("person")
 public class PersonRestService {
 
-    ModelFacade facade = new ModelFacade(Persistence.createEntityManagerFactory("DeGuleSiderPU"));
+    ModelFacade facade = new ModelFacade(Persistence.createEntityManagerFactory(DeploymentConfiguration.PU_NAME));
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     JsonParser parser = new JsonParser();
     
