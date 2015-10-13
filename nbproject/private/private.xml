@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/src/java/rest/PersonRestService.java</file>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/src/java/control/ModelFacade.java</file>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/web/index.jsp</file>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/web/problems.jsp</file>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/src/java/control/SchemaBuilder.java</file>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/web/WEB-INF/web.xml</file>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/web/addPerson.jsp</file>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/src/conf/persistence.xml</file>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/web/WEB-INF/tags/baseTemplate.tag</file>
-            <file>file:/home/kasper/NetBeansProjects/DeGuleSider/web/myjavascripts.js</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -10,6 +10,8 @@
             <div id="class">B class</div>
 
             <div id= "group"> Group number 9</div>
+
+            <div id="github"> <a href="https://github.com/1martinkarlsen/DeGuleSider" </a> GitHub</div> 
         </div>
     </div>
 
